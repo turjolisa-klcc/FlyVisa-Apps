@@ -1,18 +1,15 @@
-
 import React from 'react';
-import { COMPANY_NAME, LOGO_URL, AGENT_EMAIL, AGENT_WHATSAPP } from '../constants';
+import { COMPANY_NAME, AGENT_EMAIL, AGENT_WHATSAPP } from '../constants';
 import { MailIcon, MessageCircleIcon } from './icons';
+import Logo from './Logo';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-slate-900 text-slate-400 py-12 text-center">
+        <footer className="bg-slate-900 text-slate-400 py-10 text-center">
             <div className="container mx-auto px-6">
                 <div className="flex justify-center mb-6">
-                    <div className="bg-white p-3 rounded-full">
-                        <img src={LOGO_URL} alt={`${COMPANY_NAME} Logo`} className="h-12 w-auto" />
-                    </div>
+                    <Logo className="h-12 w-12 border-2 border-slate-700" />
                 </div>
-                <h2 className="text-2xl font-bold text-white mb-2">{COMPANY_NAME}</h2>
                 <p className="mb-6 max-w-md mx-auto text-slate-500">
                     Your trusted partner for seamless global travel and immigration solutions.
                 </p>

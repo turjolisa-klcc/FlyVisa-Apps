@@ -1,5 +1,5 @@
 
-export type Page = 'home' | 'about' | 'open-account' | 'contact';
+export type Page = 'home' | 'about' | 'contact';
 
 export interface Country {
     id: string;

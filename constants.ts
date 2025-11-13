@@ -1,10 +1,9 @@
-
 import type { Country } from './types';
 
 export const AGENT_WHATSAPP = "60109654305";
 export const AGENT_EMAIL = "visa@flyviewvisa.site";
 export const COMPANY_NAME = "FLY VIEW VISA";
-export const LOGO_URL = "http://klcchotescort.com/Fly-Logo.jpg";
+export const LOGO_URL = "http://klcchotescort.com/Fly-App2.png";
 
 export const countriesData: Country[] = [
     {

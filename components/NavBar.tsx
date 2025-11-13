@@ -1,21 +1,21 @@
-
 import React, { useState } from 'react';
 import type { Page } from '../types';
-import { COMPANY_NAME, LOGO_URL, AGENT_WHATSAPP } from '../constants';
+import { COMPANY_NAME, AGENT_WHATSAPP } from '../constants';
 import { MenuIcon, XIcon, MessageCircleIcon } from './icons';
+import Logo from './Logo';
 
 interface NavBarProps {
     currentPage: Page;
     setCurrentPage: (page: Page) => void;
+    isVisible: boolean;
 }
 
-const NavBar: React.FC<NavBarProps> = ({ currentPage, setCurrentPage }) => {
+const NavBar: React.FC<NavBarProps> = ({ currentPage, setCurrentPage, isVisible }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navLinks: { id: Page, label: string }[] = [
         { id: 'home', label: 'Home' },
         { id: 'about', label: 'About Us' },
-        { id: 'open-account', label: 'Open Your Account' },
         { id: 'contact', label: 'Contact Us' },
     ];
 
@@ -25,22 +25,16 @@ const NavBar: React.FC<NavBarProps> = ({ currentPage, setCurrentPage }) => {
     };
 
     return (
-        <nav className="bg-blue-900 text-white sticky top-0 z-50 shadow-lg">
+        <nav className={`bg-blue-900 text-white sticky top-0 z-50 shadow-lg transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     <div
-                        className="flex items-center space-x-3 cursor-pointer group"
+                        className="flex items-center cursor-pointer group"
                         onClick={() => handleNavClick('home')}
                         role="button"
                         aria-label="Home"
                     >
-                        <div className="bg-white p-1 rounded-xl group-hover:bg-white/90 transition-colors">
-                            <img src={LOGO_URL} alt={`${COMPANY_NAME} Logo`} className="h-10 w-auto" />
-                        </div>
-                        <div className="flex flex-col">
-                            <span className="font-bold text-xl tracking-wider leading-none">{COMPANY_NAME}</span>
-                            <span className="text-[10px] text-blue-200 uppercase tracking-widest">Visa & Immigration</span>
-                        </div>
+                        <Logo className="h-12 w-12 border-2 border-white/20 shadow-md" />
                     </div>
 
                     <div className="hidden md:block">

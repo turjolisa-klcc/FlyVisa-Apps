@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
-import { COMPANY_NAME, AGENT_WHATSAPP, AGENT_EMAIL, LOGO_URL } from '../constants';
+import { COMPANY_NAME, AGENT_WHATSAPP, AGENT_EMAIL } from '../constants';
 import { PhoneIcon, MailIcon, MapIcon, CheckCircleIcon } from './icons';
+import Logo from './Logo';
 
 const OpenAccountPage: React.FC = () => {
     const [submitted, setSubmitted] = useState(false);
@@ -65,10 +65,7 @@ const OpenAccountPage: React.FC = () => {
                             </div>
                         </div>
                         <div className="relative z-10 mt-12 md:mt-0">
-                            <div className="flex items-center space-x-3 bg-white/10 p-3 rounded-xl w-fit">
-                                <img src={LOGO_URL} alt={`${COMPANY_NAME} Logo`} className="h-8 w-auto bg-white rounded-md p-0.5" />
-                                <span className="font-bold text-lg tracking-wider">{COMPANY_NAME}</span>
-                            </div>
+                            <Logo className="h-12 w-12" />
                         </div>
                     </div>
 

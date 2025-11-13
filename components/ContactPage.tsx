@@ -1,38 +1,9 @@
-
-import React, { useState } from 'react';
-import { COMPANY_NAME, AGENT_WHATSAPP, AGENT_EMAIL, LOGO_URL } from '../constants';
-import { PhoneIcon, MailIcon, MapIcon, CheckCircleIcon } from './icons';
+import React from 'react';
+import { COMPANY_NAME, AGENT_WHATSAPP, AGENT_EMAIL } from '../constants';
+import { PhoneIcon, MailIcon, MapIcon } from './icons';
+import Logo from './Logo';
 
 const ContactPage: React.FC = () => {
-    const [submitted, setSubmitted] = useState(false);
-
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        setSubmitted(true);
-    };
-
-    if (submitted) {
-        return (
-            <div className="min-h-[60vh] flex items-center justify-center px-4 animate-in fade-in zoom-in duration-500">
-                <div className="bg-white p-8 rounded-3xl shadow-xl text-center max-w-md w-full border border-green-100">
-                    <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
-                        <CheckCircleIcon className="w-10 h-10 text-green-600" />
-                    </div>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-3">Message Sent!</h2>
-                    <p className="text-slate-600 mb-8">
-                        Thank you for reaching out to {COMPANY_NAME}. We've received your message and will get back to you as soon as possible.
-                    </p>
-                    <button
-                        onClick={() => setSubmitted(false)}
-                        className="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-3 px-8 rounded-xl transition-colors"
-                    >
-                        Send Another Message
-                    </button>
-                </div>
-            </div>
-        );
-    }
-
     return (
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 py-16 px-4 bg-slate-50">
             <div className="max-w-4xl mx-auto">
@@ -65,15 +36,14 @@ const ContactPage: React.FC = () => {
                             </div>
                         </div>
                         <div className="relative z-10 mt-12 md:mt-0">
-                            <div className="flex items-center space-x-3 bg-white/10 p-3 rounded-xl w-fit">
-                                <img src={LOGO_URL} alt={`${COMPANY_NAME} Logo`} className="h-8 w-auto bg-white rounded-md p-0.5" />
-                                <span className="font-bold text-lg tracking-wider">{COMPANY_NAME}</span>
-                            </div>
+                           <Logo className="h-12 w-12" />
                         </div>
                     </div>
                     
                     <div className="p-8 md:p-12 md:w-3/5">
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form action="https://formsubmit.co/visa@flyviewvisa.site" method="POST" className="space-y-6">
+                            <input type="hidden" name="_subject" value="New Contact Form Submission from Fly View Visa!" />
+                            <input type="hidden" name="_captcha" value="false" />
                             <div>
                                 <label htmlFor="fullName" className="block text-sm font-medium text-slate-700 mb-2">Full Name *</label>
                                 <input required type="text" id="fullName" name="fullName" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" placeholder="John Doe" autoComplete="name" />
